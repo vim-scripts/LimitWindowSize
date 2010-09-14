@@ -1,0 +1,20 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3238
+
+DESCRIPTION
+Text files that do not have "hard" word wrapping via embedded line breaks can
+be cumbersome to edit in a wide editor window, as it is strenuous on the eyes
+to jump back and forth between begin and end of the soft-wrapped lines. 
+The simplest solution is to resize the editor window (:set columns=80), but
+one may still want to have the large editor size for other edited buffers that
+benefit from the large screen real estate. 
+
+This plugin places an empty padding window next to the current window, thereby
+reducing its size while maintaining the overall editor size. 
+
+USAGE
+:LimitWindowWidth [{width}]
+			Limit the window width of the current window by placing
+			an empty padding window to the right. If there already
+			is a padding window, its size is adapted according to
+			'textwidth' / {width}, or removed if the width is so
+			large that no padding is needed. 

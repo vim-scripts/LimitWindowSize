@@ -1,0 +1,83 @@
+*LimitWindowSize.txt*     Reduce the current window size by placing an empty padding window next to it. 
+
+		     LIMIT WINDOW SIZE    by Ingo Karkat
+							 *LimitWindowSize.vim*
+description			|LimitWindowSize-description|
+usage	    			|LimitWindowSize-usage|
+installation   			|LimitWindowSize-installation|
+configuration  			|LimitWindowSize-configuration|
+integration			|LimitWindowSize-integration|
+limitations			|LimitWindowSize-limitations|
+known problems			|LimitWindowSize-known-problems|
+todo				|LimitWindowSize-todo|
+history				|LimitWindowSize-history|
+
+==============================================================================
+DESCRIPTION					 *LimitWindowSize-description*
+
+Text files that do not have "hard" word wrapping via embedded line breaks can
+be cumbersome to edit in a wide editor window, as it is strenuous on the eyes
+to jump back and forth between begin and end of the soft-wrapped lines. 
+The simplest solution is to resize the editor window (:set columns=80), but
+one may still want to have the large editor size for other edited buffers that
+benefit from the large screen real estate. 
+
+This plugin places an empty padding window next to the current window, thereby
+reducing its size while maintaining the overall editor size. 
+
+==============================================================================
+USAGE						       *LimitWindowSize-usage*
+
+:LimitWindowWidth [{width}]
+			Limit the window width of the current window by placing
+			an empty padding window to the right. If there already
+			is a padding window, its size is adapted according to
+			'textwidth' / {width}, or removed if the width is so
+			large that no padding is needed. 
+
+==============================================================================
+INSTALLATION					*LimitWindowSize-installation*
+
+This script is packaged as a |vimball|. If you have the "gunzip" decompressor
+in your PATH, simply edit the *.vba.gz package in Vim; otherwise, decompress
+the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
+vimball or via the |:UseVimball| command. >
+    vim LimitWindowSize.vba.gz
+    :so %
+To uninstall, use the |:RmVimball| command. 
+
+DEPENDENCIES					*LimitWindowSize-dependencies*
+
+- Requires Vim 7.0 or higher. 
+
+==============================================================================
+CONFIGURATION				       *LimitWindowSize-configuration*
+
+INTEGRATION					 *LimitWindowSize-integration*
+
+LIMITATIONS					 *LimitWindowSize-limitations*
+
+KNOWN PROBLEMS				      *LimitWindowSize-known-problems*
+
+TODO							*LimitWindowSize-todo*
+
+- Auto-remove padding window if the window is removed. 
+
+IDEAS						       *LimitWindowSize-ideas*
+
+==============================================================================
+HISTORY						     *LimitWindowSize-history*
+
+1.00	11-Sep-2010
+First published version. 
+
+0.01	10-May-2008
+Started development. 
+
+==============================================================================
+Copyright: (C) 2010 by Ingo Karkat
+The VIM LICENSE applies to this script; see |copyright|. 
+
+Maintainer:	Ingo Karkat <ingo@karkat.de>
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:
