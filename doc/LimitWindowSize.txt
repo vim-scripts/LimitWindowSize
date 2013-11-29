@@ -1,11 +1,11 @@
-*LimitWindowSize.txt*     Reduce the current window size by placing an empty padding window next to it. 
+*LimitWindowSize.txt*     Reduce the current window size by placing an empty padding window next to it.
 
 		     LIMIT WINDOW SIZE    by Ingo Karkat
 							 *LimitWindowSize.vim*
 description			|LimitWindowSize-description|
-usage	    			|LimitWindowSize-usage|
-installation   			|LimitWindowSize-installation|
-configuration  			|LimitWindowSize-configuration|
+usage				|LimitWindowSize-usage|
+installation			|LimitWindowSize-installation|
+configuration			|LimitWindowSize-configuration|
 integration			|LimitWindowSize-integration|
 limitations			|LimitWindowSize-limitations|
 known problems			|LimitWindowSize-known-problems|
@@ -17,13 +17,13 @@ DESCRIPTION					 *LimitWindowSize-description*
 
 Text files that do not have "hard" word wrapping via embedded line breaks can
 be cumbersome to edit in a wide editor window, as it is strenuous on the eyes
-to jump back and forth between begin and end of the soft-wrapped lines. 
+to jump back and forth between begin and end of the soft-wrapped lines.
 The simplest solution is to resize the editor window (:set columns=80), but
 one may still want to have the large editor size for other edited buffers that
-benefit from the large screen real estate. 
+benefit from the large screen real estate.
 
 This plugin places an empty padding window next to the current window, thereby
-reducing its size while maintaining the overall editor size. 
+reducing its size while maintaining the overall editor size.
 
 ==============================================================================
 USAGE						       *LimitWindowSize-usage*
@@ -33,22 +33,24 @@ USAGE						       *LimitWindowSize-usage*
 			an empty padding window to the right. If there already
 			is a padding window, its size is adapted according to
 			'textwidth' / {width}, or removed if the width is so
-			large that no padding is needed. 
+			large that no padding is needed.
 
 ==============================================================================
 INSTALLATION					*LimitWindowSize-installation*
 
 This script is packaged as a |vimball|. If you have the "gunzip" decompressor
-in your PATH, simply edit the *.vba.gz package in Vim; otherwise, decompress
+in your PATH, simply edit the *.vmb.gz package in Vim; otherwise, decompress
 the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
 vimball or via the |:UseVimball| command. >
-    vim LimitWindowSize.vba.gz
+    vim LimitWindowSize*.vmb.gz
     :so %
-To uninstall, use the |:RmVimball| command. 
+To uninstall, use the |:RmVimball| command.
 
 DEPENDENCIES					*LimitWindowSize-dependencies*
 
-- Requires Vim 7.0 or higher. 
+- Requires Vim 7.0 or higher.
+- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.004 or
+  higher.
 
 ==============================================================================
 CONFIGURATION				       *LimitWindowSize-configuration*
@@ -61,22 +63,29 @@ KNOWN PROBLEMS				      *LimitWindowSize-known-problems*
 
 TODO							*LimitWindowSize-todo*
 
-- Auto-remove padding window if the window is removed. 
+- Auto-remove padding window if the window is removed.
 
 IDEAS						       *LimitWindowSize-ideas*
 
 ==============================================================================
 HISTORY						     *LimitWindowSize-history*
 
+1.01	29-Nov-2013
+- Add workaround for when a :LimitWindowWidth command is issued from a still
+  minimized GVIM in the process of restoring its window. The check for the
+  window width then needs to be delayed until after the VimResized event.
+- Add dependency to ingo-library (vimscript #4433). *** You need to separately
+  install ingo-library (vimscript #4433) version 1.004 (or higher)! ***
+
 1.00	11-Sep-2010
-First published version. 
+First published version.
 
 0.01	10-May-2008
-Started development. 
+Started development.
 
 ==============================================================================
-Copyright: (C) 2010 by Ingo Karkat
-The VIM LICENSE applies to this script; see |copyright|. 
+Copyright: (C) 2010-2013 Ingo Karkat
+The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
 ==============================================================================
